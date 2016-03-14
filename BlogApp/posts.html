@@ -1,0 +1,22 @@
+<h1>Create New Post</h1>
+<br/>
+<form class="form-horizontal" role="form" method="POST" >
+    <div class="form-group">
+        <label class="control-label col-sm-4" for="post">Post Name:</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="post" placeholder="Post Name" ng-model="posts.name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-4" >Post Content:</label>
+        <div class="col-sm-8">
+            <textarea class="form-control" rows="5" id="comment" ng-model="posts.content" placeholder="Post Content"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="button" class="btn btn-success" ng-click="createNewPost()">Submit</button>
+        </div>
+    </div>
+</form>

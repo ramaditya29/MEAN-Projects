@@ -1,0 +1,45 @@
+<html ng-app="sample">
+<head>
+    <title>Sample</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+        /*$(document).ready(function() {
+           $("#hello").click(function() {
+                var name = $("#name").val();
+               var params = "name=" + name;
+               $.ajax({
+                  type: 'POST',
+                   url: 'http://localhost:3000/hello',
+                   data: params,
+                   success: function(val){
+                       console.log(val);
+                   },
+                   error: function(val){
+
+                   }
+               });
+           });
+        });*/
+        var app = angular.module('sample', []);
+        app.controller('sampleCtrl', function($scope, $http){
+            $scope.user = {myname : ''};
+
+            //console.log($scope.params);
+            $scope.postData = function() {
+                $scope.params = {name: $scope.user.myname};
+                console.log($scope.params);
+                $http.post("http://localhost:3000/hello", $scope.params).success(function (data, status) {
+                    alert(data);
+                });
+            };
+        });
+    </script>
+</head>
+<body>
+<form method="POST" ng-controller="sampleCtrl">
+    Enter the name:<input type="text" id="name" name="name" ng-model="user.myname">
+    <input type="button" id="hello" value="hello" ng-click="postData()"/>
+</form>
+</body>
+</html>
