@@ -2,4 +2,5 @@ BlogApp/node_modules
 Bankapp/node_modules
 BlogApp/.idea/
 Bankapp/.idea/
-
+contactsapp/node_modules
+contactsapp/public/lib
